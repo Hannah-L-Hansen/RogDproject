@@ -2,7 +2,7 @@
 # Creates one large list named dat
 
 # Get file list
-files1 <- list.files('../data')
+files1 <- list.files(getDataFolderPath())
 
 # Omit temporary Excel files   
 
@@ -19,7 +19,7 @@ for(i in ids) {
   dat[[i]] <- list() 
   
   # Read in data args
-  args <- as.data.frame(read_xlsx(paste0('../data/',files1[i]), sheet = 4, skip = 1))
+  args <- as.data.frame(read_xlsx(paste0(getDataFolderPath(),files1[i]), sheet = 4, skip = 1))
   
   # Change to vector
   dnames <- args$arg
@@ -44,8 +44,8 @@ for(i in ids) {
   if(isNullOrNa(args$cmethod)) args$cmethod <- 'removed'  ## --> What does the "removed" stand for?
   
   #read in setup and biogas
-  setup <- as.data.frame(read_xlsx(paste0('../data/',files1[i]), sheet = 1, skip = 1))
-  biogas <- as.data.frame(read_xlsx(paste0('../data/',files1[i]), sheet = 3, skip = 1))
+  setup <- as.data.frame(read_xlsx(paste0(getDataFolderPath(),files1[i]), sheet = 1, skip = 1))
+  biogas <- as.data.frame(read_xlsx(paste0(getDataFolderPath(),files1[i]), sheet = 3, skip = 1))
   
   ## Sort out substrate names--use standard substrate names
   #setup$substrate <- NA
@@ -84,7 +84,7 @@ for(i in ids) {
   } else if(args$data.struct == 'longcombo') {
     dat[[i]][['comp']] <- NULL
   } else {
-    comp <- as.data.frame(read_xlsx(paste0('../data/',files1[i]), sheet = 2, skip = 1))
+    comp <- as.data.frame(read_xlsx(paste0(getDataFolderPath(),files1[i]), sheet = 2, skip = 1))
     dat[[i]][['comp']] <- comp
   }
 

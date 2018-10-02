@@ -37,3 +37,7 @@ isNumericString <- function(x) {
 	!isNullOrNa(x) &&
 	grepl('[0-9]+', x))
 }
+
+getDataFolderPath <- function() {
+  return( Sys.getenv('biogasDataFolderPath', '../data'))
+}
