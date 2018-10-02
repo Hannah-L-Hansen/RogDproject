@@ -60,7 +60,7 @@ for(i in ids) {
     args$unit.pres <- 'atm'   
   }  
 
-  # Add fixed VS concentrations   --> why add fixed vs??
+  # Add fixed (true, as opposed to the measured ones) VS concentrations   
   fvs <- data.frame(substrate = c('CEL',   'SA', 'SB', 'SC', 'BK'), 
               c.vs2.subf = c(0.948, 0.829, 0.865, 0.810, 0.0))
   
