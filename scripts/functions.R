@@ -39,5 +39,5 @@ isNumericString <- function(x) {
 }
 
 getDataFolderPath <- function() {
-  return('../data')
+  return( Sys.getenv('biogasDataFolderPath', '../data'))
 }
