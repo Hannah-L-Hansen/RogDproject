@@ -262,3 +262,11 @@ __pycache__/
 
 # Data files
 data/
+
+# R
+# R History files
+.Rhistory
+.Rapp.history
+
+# R Session Data files
+.RData
