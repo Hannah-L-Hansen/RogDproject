@@ -26,5 +26,8 @@ bmp1percent <- bmp1p[,c('BMP')]
 
 bmpCompare <- as.data.frame(cbind(bmpCompare,bmp1percent))
 
-bmpCompare
-str(bmpCompare)
+#Naming columns in bmpCompare
+
+names(bmpCompare) <- c('test','lab','substrate','time','bmp0.5p','bmp1p')
+
+
