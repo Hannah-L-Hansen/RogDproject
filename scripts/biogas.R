@@ -112,61 +112,61 @@ for(i in names(dat)) {
   bmp30$end <- '30 d'
  
 # Rates
-  # rates <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
-  #               descrip.name = 'substrate', inoc.name = 'BK',
-  #               inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d', 
-  #               show.rates = TRUE, extrap = TRUE, quiet = TRUE)    
+  rates <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', inoc.name = 'BK',
+                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d',
+                show.rates = TRUE, extrap = TRUE, quiet = TRUE)
   
 #ratesg = rates gross production
-  # ratesg <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
-  #               descrip.name = 'substrate', inoc.name = 'BK',
-  #               inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d', 
-  #               rate.crit = 'gross',
-  #               show.rates = TRUE, extrap = TRUE, quiet = TRUE)    
+  ratesg <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', inoc.name = 'BK',
+                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d',
+                rate.crit = 'gross',
+                show.rates = TRUE, extrap = TRUE, quiet = TRUE)
   
 #yield mn??  --> what is mn? mean 
-  # yldmn <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
-  #               descrip.name = 'substrate', inoc.name = 'BK',
-  #               inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = 'meas',
-  #               extrap = TRUE, quiet = TRUE) 
-  #   
-  # yld <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
-  #               descrip.name = 'substrate', inoc.name = 'BK',
-  #               inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = 'meas',
-  #               show.obs = TRUE, extrap = TRUE, quiet = TRUE) 
+  yldmn <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', inoc.name = 'BK',
+                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = 'meas',
+                extrap = TRUE, quiet = TRUE)
+
+  yld <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', inoc.name = 'BK',
+                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = 'meas',
+                show.obs = TRUE, extrap = TRUE, quiet = TRUE)
   
 #inoculum yield? What does that mean? --> inc yield normalized by inoc vs
     
- #  inocyld <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
- #                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
- #                show.obs = TRUE, extrap = TRUE, quiet = TRUE) 
- # 
- #  inocyldmn <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
- #                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
- #                show.obs = FALSE, extrap = TRUE, quiet = TRUE) 
- # 
- #  inocyldend <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
- #                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'end',
- #                show.obs = FALSE, extrap = TRUE, quiet = TRUE) 
- #     
- #  inocrate <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
- #                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
- #                vol.name = 'rvCH4',
- #                show.obs = TRUE, extrap = TRUE, quiet = TRUE) 
+  inocyld <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
+                show.obs = TRUE, extrap = TRUE, quiet = TRUE)
+
+  inocyldmn <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
+                show.obs = FALSE, extrap = TRUE, quiet = TRUE)
+
+  inocyldend <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'end',
+                show.obs = FALSE, extrap = TRUE, quiet = TRUE)
+
+  inocrate <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 'meas',
+                vol.name = 'rvCH4',
+                show.obs = TRUE, extrap = TRUE, quiet = TRUE)
  #  
  # #inoc rate 1 d mn?? - 1 day mean for 3 replicates    
- #  inocrate1dmn <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
- #                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 1,
- #                vol.name = 'rvCH4',
- #                show.obs = FALSE, extrap = TRUE, quiet = TRUE) 
+  inocrate1dmn <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
+                descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 1,
+                vol.name = 'rvCH4',
+                show.obs = FALSE, extrap = TRUE, quiet = TRUE)
   
   # Model  - why foc? and what is it? - first order
   #foc <- fitMod(cbg[cbg[, args$time.name] <= 15, ], id.name = args$id.name, time.name = args$time.name, vol.name = 'rvCH4')
   
   #r After BMP calculation, add setup info to cbg and foc
   cbg <- merge(setup, cbg)
-  #cbg <- merge(setup, cbg, by = 'id')
-  #foc <- merge(foc, setup, by = 'id')
+  # cbg <- merge(setup, cbg, by = 'id')
+  # foc <- merge(foc, setup, by = 'id')
   
   dat[[i]]$cbg <- cbg
   dat[[i]]$bmp0.5p <- bmp0.5p
@@ -174,15 +174,15 @@ for(i in names(dat)) {
   dat[[i]]$bmp1pg <- bmp1pg
   dat[[i]]$bmp20 <- bmp20
   dat[[i]]$bmp30 <- bmp30
-  # dat[[i]]$yldmn <- yldmn
-  # dat[[i]]$yld <- yld
-  # dat[[i]]$inocyld <- inocyld
-  # dat[[i]]$inocyldmn <- inocyldmn
-  # dat[[i]]$inocyldend <- inocyldend
-  # dat[[i]]$inocrate <- inocrate
-  # dat[[i]]$inocrate1dmn <- inocrate1dmn
-  # dat[[i]]$rates <- rates
-  # dat[[i]]$ratesg <- ratesg
+  dat[[i]]$yldmn <- yldmn
+  dat[[i]]$yld <- yld
+  dat[[i]]$inocyld <- inocyld
+  dat[[i]]$inocyldmn <- inocyldmn
+  dat[[i]]$inocyldend <- inocyldend
+  dat[[i]]$inocrate <- inocrate
+  dat[[i]]$inocrate1dmn <- inocrate1dmn
+  dat[[i]]$rates <- rates
+  dat[[i]]$ratesg <- ratesg
   #dat[[i]]$foc <- foc
   
 }
