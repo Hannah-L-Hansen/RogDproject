@@ -10,6 +10,7 @@ source('extract.R')
 
 source('add_vars.R')
 source('grouping.R')
+source('bmpPlots.R')
 
 
 #source('merge.R')
