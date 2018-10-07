@@ -1,15 +1,3 @@
-#plottong bmp1p and bmp0.5p
-
-#ggplot template:
-
-# ggplot(data = bmpPlot30, aes(time.d.bmp0.5p, BMP.bmp0.5p, colour = lab, group = lab) + 
-#   geom_point() + facet_grid(~ substrate) + 
-#   labs(x = 'Time (d)', y = 'BMP', colour = 'lab'))
- 
-
-#Create sorting function
-
-#sortedBmpPlot30 <- bmpPlot30[with(bmpPlot30, order(BMP.bmp0.5p+BMP.bmp1p)),] 
 
 #reshapeing data frame for comparrison of BMP0.5p and BMP1p
 
@@ -68,5 +56,7 @@ ggplot(
  geom_col()+
   facet_wrap(facets = 'substrate')
 
+
+##rearanging data for boxplot
 
 
