@@ -2,7 +2,7 @@
 #reshapeing data frame for comparrison of BMP0.5p and BMP1p
 
 
-#creating and adding rank column
+#creating and adding rank columns
 
 labRankDataFrame <- bmpPlot30 %>% 
   group_by(lab) %>%
@@ -10,9 +10,17 @@ labRankDataFrame <- bmpPlot30 %>%
   arrange(lab)%>%
   mutate(labPlotRank=row_number())
 
-#merging labRank onto bmpPlot30
+substrateRankDataFrame <- bmpPlot30 %>% 
+  group_by(substrate) %>%
+  summarise() %>%
+  arrange(substrate)%>%
+  mutate(substratePlotRank=row_number())
+
+#merging labRank and substrateRank onto bmpPlot30
 
 bmpPlot30 <- merge(x = bmpPlot30, y = labRankDataFrame, by = c('lab'), all.x = TRUE)
+
+bmpPlot30 <- merge(x = bmpPlot30, y = substrateRankDataFrame, by = c('substrate'), all.x = TRUE)
   
 
 reshapeBMP0.5pBMP1p <- function(x){
@@ -21,6 +29,7 @@ return(
    x %>% 
    select
         ( 
+          substratePlotRank=substratePlotRank,
           labPlotRank=labPlotRank,
             test=test, 
             lab=lab, 
@@ -29,7 +38,8 @@ return(
             BMP=BMP.bmp0.5p) %>%
   mutate(yIndex=0),
     x %>% 
-    select(   
+    select( 
+      substratePlotRank=substratePlotRank,
       labPlotRank=labPlotRank,
             test=test, 
             lab=lab, 
@@ -57,6 +67,14 @@ ggplot(
   facet_wrap(facets = 'substrate')
 
 
-##rearanging data for boxplot
+#boxplot by substrate
 
-
+ggplot(
+  data = dfPlot0.5And1, 
+  aes(
+    x=1+((substratePlotRank-1)),
+    y=BMP,
+    group=substrate)) +
+  facet_grid(yIndex~.)+
+  geom_boxplot()
+  
