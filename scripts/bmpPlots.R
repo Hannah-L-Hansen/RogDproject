@@ -60,21 +60,20 @@ ggplot(
   aes(
     x=1+((labPlotRank-1)*2+yIndex),
     y=BMP,
-    color= 000,
     fill=lab
-    )) +
- geom_col()+
-  facet_wrap(facets = 'substrate')
-
+  )) +
+  geom_col()+
+  facet_wrap(facets = 'substrate')+
+  labs(x='lab')
 
 #boxplot by substrate
 
 ggplot(
   data = dfPlot0.5And1, 
   aes(
-    x=1+((substratePlotRank-1)),
+    x=substrate,
     y=BMP,
     group=substrate)) +
   facet_grid(yIndex~.)+
-  geom_boxplot()
+  geom_boxplot(width = 0.3)
   
