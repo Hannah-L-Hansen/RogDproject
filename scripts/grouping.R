@@ -32,5 +32,4 @@ names(bmpPlot30) <-
   c('test','lab','substrate','time.d.bmp0.5p','time.d.bmp1p', 'BMP.bmp0.5p', 'BMP.bmp1p','rate.met.bmp1p','rate.met.bmp0.5p','time.d.BMP20','BMP20','time.d.BMP30','BMP30')
 
 
-#add gross vs net --> figure out if bmp0.5pg is possible to add first!
 
