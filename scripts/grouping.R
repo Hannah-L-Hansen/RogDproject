@@ -32,4 +32,31 @@ names(bmpPlot30) <-
   c('test','lab','substrate','time.d.bmp0.5p','time.d.bmp1p', 'BMP.bmp0.5p', 'BMP.bmp1p','rate.met.bmp1p','rate.met.bmp0.5p','time.d.BMP20','BMP20','time.d.BMP30','BMP30')
 
 
+#reshapeing data frame for comparrison of BMP0.5p and BMP1p
+
+reshapeDataFrame <- function(x){
+  return(
+    rbind(
+      x %>% 
+        select
+      (   test=test, 
+        lab=lab, 
+        substrate=substrate, 
+        time.d=time.d.bmp0.5p, 
+        rate.met=rate.met.bmp0.5p,
+        BMP=BMP.bmp0.5p) %>%
+        mutate(calcMethod='0.5p'),
+      x %>% 
+        select( 
+          test=test,
+          lab=lab, 
+          substrate=substrate, 
+          time.d=time.d.bmp1p,
+          rate.met=rate.met.bmp1p, 
+          BMP=BMP.bmp1p) %>%
+        mutate(calcMethod ='1p')
+    ))
+}
+
+dfPlot0.5And1 <- reshapeDataFrame(bmpPlot30)
 
