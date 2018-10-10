@@ -60,3 +60,30 @@ reshapeDataFrame <- function(x){
 
 dfPlot0.5And1 <- reshapeDataFrame(bmpPlot30)
 
+
+#reshapeing data frame for comparrison of BMP20 and BMP30
+
+reshapeDataFrame <- function(x){
+  return(
+    rbind(
+      x %>% 
+        select
+      ( test=test, 
+        lab=lab, 
+        substrate=substrate, 
+        time.d=time.d.BMP20, 
+        BMP=BMP20) %>%
+        mutate(endTime='20 days'),
+      x %>% 
+        select( 
+          test=test,
+          lab=lab, 
+          substrate=substrate, 
+          time.d=time.d.BMP30,
+          BMP=BMP30) %>%
+        mutate(endTime='30 days')
+    ))
+}
+
+dfPlot20_30 <- reshapeDataFrame(bmpPlot30)
+

@@ -42,3 +42,23 @@ bmp_test2 <- filter(bmpPlot30, test==2)
               sdtime.d.bmp1p = sd(time.d.bmp1p, na.rm = TRUE),
               Bmp.1pmn = mean(BMP.bmp1p, na.rm = TRUE),
               sdBmp.1p = sd(BMP.bmp1p, na.rm = TRUE))
+ 
+ 
+ #fixed 20 and 30 days end:
+ #method = 1p test1
+ 
+ bmp2030_t1 <- bmp_test1 %>% 
+   group_by(substrate) %>%
+   summarise( BMP20mn = mean(BMP20, na.rm = TRUE),
+              sdBMP20 = sd(BMP20, na.rm = TRUE),
+              BMP30mn = mean(BMP30, na.rm = TRUE),
+              sdBMP30 = sd(BMP30, na.rm = TRUE))
+ 
+ 
+bmp2030_t2 <- bmp_test2 %>% 
+   group_by(substrate) %>%
+   summarise( BMP20mn = mean(BMP20, na.rm = TRUE),
+              sdBMP20 = sd(BMP20, na.rm = TRUE),
+              BMP30mn = mean(BMP30, na.rm = TRUE),
+              sdBMP30 = sd(BMP30, na.rm = TRUE))
+ 
