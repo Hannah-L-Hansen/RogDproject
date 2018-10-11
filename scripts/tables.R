@@ -92,8 +92,6 @@ is.rate.met_t2_1p<-rate.met_test2_1p%>%
 
 # performing t tests:
 
-##LAV EN FUNCTION DET ER FOR DUMT DET HER!!!
-
 #separating by substrate
 
 #Test1:
@@ -109,13 +107,41 @@ bmp_test2_SA <- filter(bmp_test2, substrate == 'SA')
 bmp_test2_SB <- filter(bmp_test2, substrate == 'SB')
 bmp_test2_SC <- filter(bmp_test2, substrate == 'SC')
 
+
 #t tests:
 
-t_test_t1Cell <- t.test(bmp_test1_cell$BMP.bmp0.5p, bmp_test1_cell$BMP.bmp1p)
-t_test_t1SA <- t.test(bmp_test1_SA$BMP.bmp0.5p, bmp_test1_SA$BMP.bmp1p)
+tTest0.5p1p <- function(x){
+  return(t.test(x$BMP.bmp0.5p,x$BMP.bmp1p))
+}
+ 
 
+t_test_t1cell <- tTest0.5p1p(bmp_test1_cell)
+
+t_test_t1cell
+
+t_test_t1SA <- tTest0.5p1p(bmp_test1_SA)
+
+t_test_t1SA
+
+t_test_t1SB <- tTest0.5p1p(bmp_test1_SB)
+t_test_t1SB
+
+t_test_t1SC <- tTest0.5p1p(bmp_test1_SC)
+t_test_t1SC
+
+t_test_t2cell <- tTest0.5p1p(bmp_test2_cell)
+t_test_t2cell
+
+t_test_t2SA <- tTest0.5p1p(bmp_test2_SA)
+t_test_t2SA 
+
+t_test_t2SB <- tTest0.5p1p(bmp_test2_SB)
+t_test_t2SB
+
+t_test_t2SC <- tTest0.5p1p(bmp_test2_SC)
+t_test_t2SC
 
 #ANOVA:
 
 ANOVA_test1 <- aov(BMP.bmp0.5p ~ BMP.bmp1p, data = bmp_test1)
-summary(ANOVA_test1)
+
