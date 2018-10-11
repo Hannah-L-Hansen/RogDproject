@@ -2,7 +2,7 @@
 
 for(i in names(dat)) {
   
-  cat('\n', i, i, i, i, '\n')   #--> don't know what this does?
+  cat('\n', i, i, i, i, '\n')   
   setup <- dat[[i]][['setup']]
   biogas <- dat[[i]][['biogas']]
   comp <- dat[[i]][['comp']]

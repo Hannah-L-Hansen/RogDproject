@@ -20,12 +20,13 @@ ggplot(data = dfPlot0.5And1, aes(lab, BMP, fill = calcMethod, colour = rate.met)
        facet_grid(test ~ substrate) +
        labs(x='lab',fill = 'method')
 
-#bar chart with test, method and substrate   --> adding sd bars?
+#bar chart with test, method and substrate   
 ggplot(data = dfPlot0.5And1, aes(lab, BMP, fill = calcMethod)) +
   geom_col(position = 'dodge')+
   facet_grid(test ~ substrate) +
   labs(x='lab',fill = 'method')
 
+ 
 ##Creating plots for comparison of 20 and 30 days end time method:
 
 #boxplot 
