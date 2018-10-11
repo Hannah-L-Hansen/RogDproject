@@ -118,4 +118,3 @@ t_test_t1SA <- t.test(bmp_test1_SA$BMP.bmp0.5p, bmp_test1_SA$BMP.bmp1p)
 #ANOVA:
 
 ANOVA_test1 <- aov(BMP.bmp0.5p ~ BMP.bmp1p, data = bmp_test1)
-summary(ANOVA_test1)
