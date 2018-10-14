@@ -38,8 +38,8 @@ reshapeDataFrame <- function(x){
   return(
     rbind(
       x %>% 
-        select
-      (   test=test, 
+        select( 
+        test=test, 
         lab=lab, 
         substrate=substrate, 
         time.d=time.d.bmp0.5p, 
@@ -48,18 +48,17 @@ reshapeDataFrame <- function(x){
         mutate(calcMethod='0.5p'),
       x %>% 
         select( 
-          test=test,
-          lab=lab, 
-          substrate=substrate, 
-          time.d=time.d.bmp1p,
-          rate.met=rate.met.bmp1p, 
-          BMP=BMP.bmp1p) %>%
+        test=test,
+        lab=lab, 
+        substrate=substrate, 
+        time.d=time.d.bmp1p,
+        rate.met=rate.met.bmp1p,           
+        BMP=BMP.bmp1p) %>%
         mutate(calcMethod ='1p')
     ))
 }
 
 dfPlot0.5And1 <- reshapeDataFrame(bmpPlot30)
-
 
 #reshapeing data frame for comparrison of BMP20 and BMP30
 
