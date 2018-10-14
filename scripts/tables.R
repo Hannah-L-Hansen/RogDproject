@@ -4,96 +4,52 @@
 
 #creating 2 separate dataframes for the 2 tests:
 
-##Test 1
+##Test 1, only data where rate is met
 
-bmp_test1 <- filter(bmpPlot30, test == 1)
-#bmp_test1 <- mutate(bmpPlot30,logBMP.0.5p = log(BMP.bmp0.5p))
-
-# 0.5 p
-# bmp_test1 <- mutate(bmpPlot30,logBMP.0.5p= log(BMP.bmp0.5p))
-# 
-# bmp_test1 <- mutate(bmpPlot30,sqrtBMP.0.5p= sqrt(BMP.bmp0.5p))
-# bmp_test1 <- mutate(bmpPlot30,recipBMP.0.5p= 1/(BMP.bmp0.5p))
-
-# # 1p
-# bmp_test1 <- mutate(bmpPlot30,logBMP.1p= log(BMP.bmp1p))
-# 
-# bmp_test1 <- mutate(bmpPlot30,sqrtBMP.1p= sqrt(BMP.bmp1p))
-# bmp_test1 <- mutate(bmpPlot30,recipBMP.1p= 1/(BMP.bmp1p))
-
-##test2
-
-bmp_test2 <- filter(bmpPlot30, test==2)
-
-#0.5
-# bmp_test2 <- mutate(bmpPlot30,logBMP.0.5p= log(BMP.bmp0.5p))
-# 
-# bmp_test2 <- mutate(bmpPlot30,sqrtBMP.0.5p= sqrt(BMP.bmp0.5p))
-# bmp_test2 <- mutate(bmpPlot30,recipBMP.0.5p= 1/(BMP.bmp0.5p))
-# 
-# #1p
-# bmp_test2 <- mutate(bmpPlot30,logBMP.1p= log(BMP.bmp1p))
-# 
-# bmp_test2 <- mutate(bmpPlot30,sqrtBMP.1p= sqrt(BMP.bmp1p))
-# bmp_test2 <- mutate(bmpPlot30,recipBMP.1p= 1/(BMP.bmp1p))
+test1 <- filter(bmp_rate.met, test == 1)
 
 
+##test2, only data where rate is met
 
-#method = 0.5p test 1
- durBmp_0.5p_t1 <- bmp_test1 %>% 
+test2 <- filter(bmp_rate.met, test==2)
+
+
+#summary tests
+ Summarytest1 <- bmp_test1 %>% 
   group_by(substrate) %>%
   summarise(time.d.bmp0.5pmn = mean(time.d.bmp0.5p, na.rm = TRUE), 
             sdtime.d.bmp0.5p = sd(time.d.bmp0.5p, na.rm = TRUE),
             Bmp.0.5pmn = mean(BMP.bmp0.5p, na.rm = TRUE),
-            sdBmp.0.5p = sd(BMP.bmp0.5p, na.rm = TRUE))
-           
-#method = 1p test1
- 
- durBmp_1p_t1 <- bmp_test1 %>% 
-   group_by(substrate) %>%
-   summarise( time.d.bmp1pmn = mean(time.d.bmp1p, na.rm = TRUE),
-              sdtime.d.bmp1p = sd(time.d.bmp1p, na.rm = TRUE),
-              Bmp.1pmn = mean(BMP.bmp1p, na.rm = TRUE),
-              sdBmp.1p = sd(BMP.bmp1p, na.rm = TRUE))
- 
- 
- #method = 0.5p test 2
- durBmp_0.5p_t2 <- bmp_test2 %>% 
-   group_by(substrate) %>%
-   summarise(time.d.bmp0.5pmn = mean(time.d.bmp0.5p, na.rm = TRUE), 
-             sdtime.d.bmp0.5p = sd(time.d.bmp0.5p, na.rm = TRUE),
-             Bmp.0.5pmn = mean(BMP.bmp0.5p, na.rm = TRUE),
-             sdBmp.0.5p = sd(BMP.bmp0.5p, na.rm = TRUE))
- 
- #method = 1p test2
- 
- durBmp_1p_t2 <- bmp_test2 %>% 
-   group_by(substrate) %>%
-   summarise( time.d.bmp1pmn = mean(time.d.bmp1p, na.rm = TRUE),
-              sdtime.d.bmp1p = sd(time.d.bmp1p, na.rm = TRUE),
-              Bmp.1pmn = mean(BMP.bmp1p, na.rm = TRUE),
-              sdBmp.1p = sd(BMP.bmp1p, na.rm = TRUE))
- 
- 
- #fixed 20 and 30 days end:
- #method = 1p test1
- 
- bmp2030_t1 <- bmp_test1 %>% 
-   group_by(substrate) %>%
-   summarise( BMP20mn = mean(BMP20, na.rm = TRUE),
-              sdBMP20 = sd(BMP20, na.rm = TRUE),
-              BMP30mn = mean(BMP30, na.rm = TRUE),
-              sdBMP30 = sd(BMP30, na.rm = TRUE))
- 
- 
-bmp2030_t2 <- bmp_test2 %>% 
-   group_by(substrate) %>%
-   summarise( BMP20mn = mean(BMP20, na.rm = TRUE),
-              sdBMP20 = sd(BMP20, na.rm = TRUE),
-              BMP30mn = mean(BMP30, na.rm = TRUE),
-              sdBMP30 = sd(BMP30, na.rm = TRUE))
+            sdBmp.0.5p = sd(BMP.bmp0.5p, na.rm = TRUE),
+            time.d.bmp1pmn = mean(time.d.bmp1p, na.rm = TRUE),
+            sdtime.d.bmp1p = sd(time.d.bmp1p, na.rm = TRUE),
+            Bmp.1pmn = mean(BMP.bmp1p, na.rm = TRUE),
+            sdBmp.1p = sd(BMP.bmp1p, na.rm = TRUE),
+            BMP20mn = mean(BMP20, na.rm = TRUE),
+            sdBMP20 = sd(BMP20, na.rm = TRUE),
+            BMP30mn = mean(BMP30, na.rm = TRUE),
+            sdBMP30 = sd(BMP30, na.rm = TRUE))
 
+ 
+ 
+Summarytest2 <- bmp_test2 %>% 
+  group_by(substrate) %>%
+  summarise(time.d.bmp0.5pmn = mean(time.d.bmp0.5p, na.rm = TRUE), 
+            sdtime.d.bmp0.5p = sd(time.d.bmp0.5p, na.rm = TRUE),
+            Bmp.0.5pmn = mean(BMP.bmp0.5p, na.rm = TRUE),
+            sdBmp.0.5p = sd(BMP.bmp0.5p, na.rm = TRUE),
+            time.d.bmp1pmn = mean(time.d.bmp1p, na.rm = TRUE),
+            sdtime.d.bmp1p = sd(time.d.bmp1p, na.rm = TRUE),
+            Bmp.1pmn = mean(BMP.bmp1p, na.rm = TRUE),
+            sdBmp.1p = sd(BMP.bmp1p, na.rm = TRUE),
+            BMP20mn = mean(BMP20, na.rm = TRUE),
+            sdBMP20 = sd(BMP20, na.rm = TRUE),
+            BMP30mn = mean(BMP30, na.rm = TRUE),
+            sdBMP30 = sd(BMP30, na.rm = TRUE))
+ 
 
+#How many times was rate.met=TRUE
+ 
 #creating dataframes to count from:
 
 rate.met_test1_0.5p <- filter(dfPlot0.5And1, test == 1 & calcMethod == '0.5p')
