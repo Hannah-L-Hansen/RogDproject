@@ -4,9 +4,40 @@
 
 #creating 2 separate dataframes for the 2 tests:
 
+##Test 1
+
 bmp_test1 <- filter(bmpPlot30, test == 1)
+bmp_test1 <- mutate(bmpPlot30,logBMP.0.5p = log(BMP.bmp0.5p))
+
+# 0.5 p
+bmp_test1 <- mutate(bmpPlot30,logBMP.0.5p= log(BMP.bmp0.5p))
+
+bmp_test1 <- mutate(bmpPlot30,sqrtBMP.0.5p= sqrt(BMP.bmp0.5p))
+bmp_test1 <- mutate(bmpPlot30,recipBMP.0.5p= 1/(BMP.bmp0.5p))
+
+# 1p
+bmp_test1 <- mutate(bmpPlot30,logBMP.1p= log(BMP.bmp1p))
+
+bmp_test1 <- mutate(bmpPlot30,sqrtBMP.1p= sqrt(BMP.bmp1p))
+bmp_test1 <- mutate(bmpPlot30,recipBMP.1p= 1/(BMP.bmp1p))
+
+##test2
 
 bmp_test2 <- filter(bmpPlot30, test==2)
+
+#0.5
+bmp_test2 <- mutate(bmpPlot30,logBMP.0.5p= log(BMP.bmp0.5p))
+
+bmp_test2 <- mutate(bmpPlot30,sqrtBMP.0.5p= sqrt(BMP.bmp0.5p))
+bmp_test2 <- mutate(bmpPlot30,recipBMP.0.5p= 1/(BMP.bmp0.5p))
+
+#1p
+bmp_test2 <- mutate(bmpPlot30,logBMP.1p= log(BMP.bmp1p))
+
+bmp_test2 <- mutate(bmpPlot30,sqrtBMP.1p= sqrt(BMP.bmp1p))
+bmp_test2 <- mutate(bmpPlot30,recipBMP.1p= 1/(BMP.bmp1p))
+
+
 
 #method = 0.5p test 1
  durBmp_0.5p_t1 <- bmp_test1 %>% 
@@ -144,4 +175,6 @@ t_test_t2SC
 #ANOVA:
 
 ANOVA_test1 <- aov(BMP.bmp0.5p ~ BMP.bmp1p, data = bmp_test1)
+summary(ANOVA_test1)
+#Effekten af at skrifte fra lab til lab er signifikant = signifikant forskel
 

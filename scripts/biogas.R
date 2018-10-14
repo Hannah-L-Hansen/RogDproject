@@ -74,13 +74,13 @@ for(i in names(dat)) {
   bmp1p$end <- '1%'
   bmp1p$rate.met <- attributes(bmp1p)$rate.not.met[1] == ''
 
-  # 1% with gross production
+  # # 1% with gross production
   bmp1pg <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
                 descrip.name = 'substrate', inoc.name = 'BK',
-                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d', 
-                rate.crit = 'gross',
-                show.more = TRUE, extrap = TRUE, quiet = TRUE)    
-  
+                inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = '1p3d',
+                #rate.crit = 'gross',
+                show.more = TRUE, extrap = TRUE, quiet = TRUE)
+
   bmp1pg$end <- '1%g'
   bmp1pg$rate.met <- attributes(bmp1pg)$rate.not.met[1] == ''#if rate.met is true, the trials were run run long enough to meet criteria (ex. 1%..)
 
@@ -124,7 +124,7 @@ for(i in names(dat)) {
                 rate.crit = 'gross',
                 show.rates = TRUE, extrap = TRUE, quiet = TRUE)
   
-#yield mn??  --> what is mn? mean 
+#yield mean 
   yldmn <- summBg(cbg, setup = setup, id.name = args$id.name, time.name = args$time.name,
                 descrip.name = 'substrate', inoc.name = 'BK',
                 inoc.m.name = args$inoc.m.name, norm.name = args$norm.name, when = 'meas',
@@ -154,7 +154,7 @@ for(i in names(dat)) {
                 vol.name = 'rvCH4',
                 show.obs = TRUE, extrap = TRUE, quiet = TRUE)
  #  
- # #inoc rate 1 d mn?? - 1 day mean for 3 replicates    
+ # #inoc rate 1 day mean for 3 replicates    
   inocrate1dmn <- summBg(cbg, setup = subset(setup, substrate == 'BK'), id.name = args$id.name, time.name = args$time.name,
                 descrip.name = 'substrate', norm.name = 'm.inoc.vs', when = 1,
                 vol.name = 'rvCH4',

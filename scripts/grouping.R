@@ -87,3 +87,8 @@ reshapeDataFrame <- function(x){
 
 dfPlot20_30 <- reshapeDataFrame(bmpPlot30)
 
+#Removing labs were rate.met = FALSE
+
+bmp_rate.met <- filter(dfPlot0.5And1, rate.met == TRUE)
+
+
