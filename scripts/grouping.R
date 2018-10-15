@@ -62,7 +62,7 @@ dfPlot0.5And1 <- reshapeDataFrame(bmpPlot30)
 
 #reshapeing data frame for comparrison of BMP20 and BMP30
 
-reshapeDataFrame <- function(x){
+reshapeDataFrame2 <- function(x){
   return(
     rbind(
       x %>% 
@@ -84,10 +84,10 @@ reshapeDataFrame <- function(x){
     ))
 }
 
-dfPlot20_30 <- reshapeDataFrame(bmpPlot30)
+dfPlot20_30 <- reshapeDataFrame2(bmpPlot30)
 
 #Removing labs were rate.met = FALSE
 
-bmp_rate.met <- filter(dfPlot0.5And1, rate.met == TRUE)
+bmpRate.met0.5p1p<- filter(dfPlot0.5And1, rate.met == TRUE)
 
 
