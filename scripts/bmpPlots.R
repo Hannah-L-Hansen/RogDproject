@@ -5,7 +5,7 @@
 box_0.5p_1p <- ggplot(data = bmpRate.met0.5p1p, aes(substrate, BMP, fill = calcMethod)) +
   geom_boxplot()+
   facet_grid(test ~ .)  +
-  labs(x='substrate',y='BMP (mg/L)', fill = 'method', facet_grid='test')
+  labs(x='substrate',y='BMP (mL CH4 /g VS)', fill = 'method', facet_grid='test')
 
 ggsave('boxplot0.5p_1p.png', plot = box_0.5p_1p, width = 250, height = 150, units = 'mm', path = '../plots/')
 
@@ -13,9 +13,9 @@ ggsave('boxplot0.5p_1p.png', plot = box_0.5p_1p, width = 250, height = 150, unit
 bar_0.5p_1p <- ggplot(data = bmpRate.met0.5p1p, aes(lab, BMP, fill = calcMethod)) +
   geom_col(position = 'dodge')+
   facet_grid(test ~ substrate) +
-  labs(x='lab',y='BMP (mg/L)', fill = 'method')
+  labs(x='lab',y='BMP (mL CH4 /g VS)', fill = 'method')
 
-ggsave('barchart 0.5p_1p.png', plot = bar_0.5p_1p, width = 275, height = 120, units = 'mm', path = '../plots/') 
+ggsave('barchart 0.5p_1p.png', plot = bar_0.5p_1p, width = 275, height = 150, units = 'mm', path = '../plots/') 
 
 
 ## Duration plots comparing 0.5p and 1p method
@@ -34,7 +34,7 @@ bar_0.5p_1p <- ggplot(data = bmpRate.met0.5p1p, aes(lab, time.d, fill = calcMeth
   facet_grid(test ~ substrate) +
   labs(x='lab',y='time (days)', fill = 'method')
 
-ggsave('Duration_barchart 0.5p_1p.png', plot = bar_0.5p_1p, width = 275, height = 120, units = 'mm', path = '../plots/') 
+ggsave('Duration_barchart 0.5p_1p.png', plot = bar_0.5p_1p, width = 275, height = 150, units = 'mm', path = '../plots/') 
 
 
 
@@ -45,7 +45,7 @@ ggsave('Duration_barchart 0.5p_1p.png', plot = bar_0.5p_1p, width = 275, height 
 box_20_30 <- ggplot(data = dfPlot20_30, aes(substrate, BMP, fill = endTime)) +
   geom_boxplot()+
   facet_grid(test ~ .)  +
-  labs(x='substrate',y='BMP (mg/L)',fill = 'End time', facet_grid='test')
+  labs(x='substrate',y='BMP (mL CH4 /g VS)',fill = 'End time', facet_grid='test')
   
 
 ggsave('boxplot20_30.png', plot = box_20_30, width = 250, height = 150, units = 'mm', path = '../plots/')
@@ -54,9 +54,9 @@ ggsave('boxplot20_30.png', plot = box_20_30, width = 250, height = 150, units = 
 bar_20_30 <- ggplot(data = dfPlot20_30, aes(lab, BMP, fill = endTime)) +
   geom_col(position = 'dodge')+
   facet_grid(test ~ substrate) +
-  labs(x='lab',y='BMP (mg/L)',fill = 'End time')
+  labs(x='lab',y='BMP (mL CH4 /g VS)',fill = 'End time')
 
 
-ggsave('barchart 20_30.png', plot = bar_20_30, width = 275, height = 120, units = 'mm', path = '../plots/')
+ggsave('barchart 20_30.png', plot = bar_20_30, width = 275, height = 150, units = 'mm', path = '../plots/')
 
 
